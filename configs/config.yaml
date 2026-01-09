@@ -1,0 +1,38 @@
+# Experiment configuration (edit as needed)
+experiment:
+  name: yelp_hybrid_tf
+  seed: 42
+  output_dir: outputs/yelp_hybrid_tf
+
+data:
+  root: data/yelp
+  state: NV
+  city: Las Vegas
+  category_contains: Restaurants
+  min_biz_reviews: 20
+  min_user_reviews: 10
+
+features:
+  use_query_text: true          # from review_text at train time, or empty at inference
+  use_biz_text: true
+  use_image_embeddings: false   # turn on after you run scripts/compute_clip_embeddings.py
+  image_embedding_dim: 512      # OpenCLIP ViT-B/32 outputs 512-d typically
+
+model:
+  embedding_dim: 64
+  max_tokens: 50000
+  query_seq_len: 64
+  biz_seq_len: 128
+  mlp_hidden: 128
+
+training:
+  batch_size: 1024
+  epochs_retrieval: 3
+  epochs_ranking: 2
+  learning_rate: 0.1
+
+retrieval:
+  top_k: 200   # candidates retrieved per user/query for ranking stage & evaluation
+
+ranking:
+  top_k_eval: 10   # evaluate ranking quality at this cutoff

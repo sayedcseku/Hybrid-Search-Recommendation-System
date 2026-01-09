@@ -1,0 +1,11 @@
+tensorflow>=2.13
+tensorflow-recommenders
+pandas
+numpy
+scikit-learn
+pyyaml
+tqdm
+pillow
+# Optional (for CLIP image embeddings precompute):
+# torch
+# open_clip_torch
