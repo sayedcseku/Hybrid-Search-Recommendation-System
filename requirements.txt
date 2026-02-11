@@ -7,5 +7,13 @@ pyyaml
 tqdm
 pillow
 # Optional (for CLIP image embeddings precompute):
-# torch
-# open_clip_torch
+torch
+open_clip_torch
+
+# Web/API and vector DB
+fastapi
+uvicorn[standard]
+sqlalchemy>=1.4
+psycopg2-binary
+pgvector
+sentence-transformers
